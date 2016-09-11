@@ -4,14 +4,14 @@ using System.Windows.Forms;
 
 namespace FBConnect_Protocol_Handler
 {
-    public partial class frmMain : Form
+    public partial class MainForm : Form
     {
-        public frmMain()
+        public MainForm()
         {
             InitializeComponent();
         }
 
-        private void frmMain_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             string[] args = Environment.GetCommandLineArgs();
             if (args.Length > 1)
@@ -19,7 +19,7 @@ namespace FBConnect_Protocol_Handler
                 Uri uri = new Uri(args[1]);
                 string fragment = uri.Fragment.Substring(1);
                 
-                txtAccessToken.Text = HttpUtility.ParseQueryString(fragment).Get("access_token");
+                accessTokenTextBox.Text = HttpUtility.ParseQueryString(fragment).Get("access_token");
             }
             else
             {
